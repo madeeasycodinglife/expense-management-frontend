@@ -3,26 +3,19 @@ import loginImage from "../../assets/expense-login.jpg"; // Make sure the path m
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom"; // Import Link
 
-const Register = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
+    // Here you can add your login functionality
+    if (!email || !password) {
+      setError("Please fill in all fields.");
       return;
     }
-    console.log("User registered with:", {
-      fullName,
-      email,
-      phoneNumber,
-      password,
-    });
+    console.log("User logged in with:", { email, password });
   };
 
   return (
@@ -32,20 +25,12 @@ const Register = () => {
           <div className="pt-10">
             <img
               src={loginImage}
-              alt="Register"
+              alt="Login"
               className="md:w-full md:h-full object-cover md:mt-5"
             />
           </div>
           <div className="pt-24 px-8">
             <form className="space-y-4" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full p-2 border border-gray-300 rounded bg-white/30 text-white"
-                required
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-              />
               <input
                 type="email"
                 placeholder="Email"
@@ -55,30 +40,12 @@ const Register = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                type="tel"
-                placeholder="Phone Number"
-                pattern="[0-9]{10}"
-                title="Phone number should be 10 digits"
-                className="w-full p-2 border border-gray-300 rounded bg-white/30 text-white"
-                required
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-              />
-              <input
                 type="password"
                 placeholder="Password"
                 className="w-full p-2 border border-gray-300 rounded bg-white/30 text-white"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                className="w-full p-2 border border-gray-300 rounded bg-white/30 text-white"
-                required
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
               />
               {error && (
                 <p className="font-bold mt-2 text-red-500 p-2">{error}</p>
@@ -87,18 +54,18 @@ const Register = () => {
                 type="submit"
                 className="w-full bg-gradient-to-r from-[#1e3a8a] via-[#3b82f6] to-[#60a5fa] text-white p-2 rounded font-semibold text-2xl hover:cursor-pointer"
               >
-                Register
+                Login
               </button>
             </form>
 
             <div className="mt-6 text-center text-xl">
               <p className="text-lg font-semibold text-white">
-                Already have an account?{" "}
+                Don't have an account?{" "}
                 <Link
-                  to="/login"
+                  to="/register"
                   className="text-lg font-bold text-gradient-pink bg-gradient-to-r from-[#ff7f50] via-[#ff1493] to-[#d500f9] hover:bg-gradient-to-l px-4 py-2 rounded transition-all duration-200 cursor-pointer"
                 >
-                  Login
+                  Sign Up
                 </Link>
               </p>
             </div>
@@ -109,4 +76,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
