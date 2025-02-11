@@ -2,7 +2,7 @@ import expenseIllustration from "../assets/expense-illustration.webp";
 
 const Home = () => {
   return (
-    <section className="bg-gray-50 min-h-[82vh] flex items-center justify-center px-6 md:px-12">
+    <section className="bg-gray-50 min-h-[90vh] flex items-center justify-center px-6 md:px-12">
       <div className="container mx-auto flex flex-col pt-28 md:flex-row items-center justify-between">
         {/* Left Side - Text Content */}
         <div className="md:w-1/2 text-center md:text-left space-y-6">

@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+.text-gradient-shadow-pink {
+  background: linear-gradient(to right, #d70b52, #ef04c8, #e00a0a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(69, 23, 253, 0.738);
+}
