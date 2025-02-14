@@ -30,33 +30,33 @@ const EmployeePanel = () => {
   return (
     <section className="bg-gradient-to-br from-[#bd2ad6] to-[#63196a] min-h-[90vh] overflow-hidden pl-4 border-4 relative">
       {/* Left Sidebar */}
-      <div className="absolute left-5 top-0  mt-36 w-1/4 bg-gray-800 text-white p-4 space-y-4">
+      <div className="absolute left-5 top-0  mt-36 w-1/4 bg-gradient-to-br from-[#266080] via-[#34a1b2] to-[#1e5a6d] text-white p-4 space-y-4">
         <button
-          className="w-full p-2 bg-gray-700 rounded hover:cursor-pointer"
+          className="w-full p-2 bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
           onClick={() => setSelectedComponent("expenses")}
         >
           Expenses
         </button>
         <button
-          className="w-full p-2 bg-gray-700 rounded hover:cursor-pointer"
+          className="w-full p-2  bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
           onClick={() => setSelectedComponent("status")}
         >
           Status
         </button>
         <button
-          className="w-full p-2 bg-gray-700 rounded hover:cursor-pointer"
+          className="w-full p-2  bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
           onClick={() => setSelectedComponent("invoice")}
         >
           Invoice
         </button>
         <button
-          className="w-full p-2 bg-gray-700 rounded hover:cursor-pointer"
+          className="w-full p-2  bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
           onClick={() => setSelectedComponent("edit-profile")}
         >
           Edit Profile
         </button>
         <button
-          className="w-full p-2 bg-gray-700 rounded hover:cursor-pointer"
+          className="w-full p-2  bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
           onClick={() => setSelectedComponent("change-password")}
         >
           Change Password

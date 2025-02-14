@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext"; // Import AuthContext
 import companyService from "../../services/companyService";
+import { ClipLoader } from "react-spinners";
 
 const CreateCompanyComponent = () => {
   const { user } = useContext(AuthContext); // Get user (and accessToken) from AuthContext
@@ -87,7 +88,7 @@ const CreateCompanyComponent = () => {
     <div className="shadow-amber-200 min-h-[70vh]">
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-gradient-to-r from-[#7d2985] to-[#bd2ad6] p-8 rounded-lg shadow-xl min-w-[71vw]  min-h-screen mt-[-2rem] text-[16px]"
+        className="max-w-lg mx-auto bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557]  p-8 rounded-lg shadow-xl min-w-[71vw]  min-h-screen mt-[-2rem] text-[16px]"
       >
         <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#c88106] to-[#d29b9b66] mb-6 text-center shadow-amber-50 ml-5">
           Register New Company
@@ -170,7 +171,7 @@ const CreateCompanyComponent = () => {
           {/* Error message */}
           {error && (
             <p className="text-center text-red-500 font-bold text-xl mt-2 mb-2">
-              {error}
+              {JSON.stringify(error)}
             </p>
           )}
 
@@ -187,10 +188,17 @@ const CreateCompanyComponent = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="bg-gradient-to-r from-green-500 to-teal-500 text-white py-2 px-6 rounded-lg focus:outline-none transition duration-300 hover:from-green-700 hover:to-teal-700 cursor-pointer"
+              className="bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] text-white py-2 px-6 rounded-lg focus:outline-none transition duration-300 hover:from-[#266080] hover:to-[#34a1b2] cursor-pointer"
               disabled={loading}
             >
-              {loading ? "Submitting..." : "Register Company"}
+              {loading ? (
+                <div className="flex justify-center items-center">
+                  <ClipLoader size={24} color={"#fff"} />
+                  <span className="ml-2">Registering...</span>
+                </div>
+              ) : (
+                "Register Company"
+              )}
             </button>
           </div>
         </div>

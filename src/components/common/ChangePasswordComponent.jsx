@@ -93,7 +93,7 @@ const ChangePasswordComponent = () => {
     <div className="shadow-amber-200 min-h-[70vh]">
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-gradient-to-r  p-8 rounded-lg shadow-xl min-w-[71vw] min-h-screen mt-[-2rem] text-2xl"
+        className="max-w-lg mx-auto bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] p-8 rounded-lg shadow-xl min-w-[71vw] min-h-screen mt-[-2rem] text-2xl"
       >
         <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#c88106] to-[#d29b9b66] mb-6 text-center shadow-amber-50 ml-5 text-nowrap">
           Change Password
@@ -140,7 +140,7 @@ const ChangePasswordComponent = () => {
         {/* Error Message */}
         {error && (
           <div className="mb-6 text-center text-red-500 font-bold text-xl">
-            {error}
+            {JSON.stringify(error)}
           </div>
         )}
 
@@ -158,10 +158,10 @@ const ChangePasswordComponent = () => {
             Cancel
           </button>
 
-          {/* Submit Button */}
+          {/* Change Password Button */}
           <button
             type="submit"
-            className="bg-gradient-to-r from-green-500 to-teal-500 text-white py-2 px-6 rounded-lg focus:outline-none transition duration-300 hover:from-green-700 hover:to-teal-700 cursor-pointer"
+            className="bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] text-white py-2 px-6 rounded-lg focus:outline-none transition duration-300 hover:from-[#266080] hover:to-[#34a1b2] cursor-pointer"
             disabled={isLoading}
           >
             {isLoading ? (

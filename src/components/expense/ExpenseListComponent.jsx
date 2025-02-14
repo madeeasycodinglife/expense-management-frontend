@@ -248,7 +248,11 @@ const ExpenseListComponent = () => {
                       className={`px-4 py-2 ${
                         approval.status === "PENDING"
                           ? "text-yellow-500 font-bold"
-                          : "text-green-500 font-bold"
+                          : approval.status === "REJECTED"
+                          ? "text-red-500 font-bold"
+                          : approval.status === "APPROVED"
+                          ? "text-green-500 font-bold"
+                          : ""
                       }`}
                     >
                       {approval.status}

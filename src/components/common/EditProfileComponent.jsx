@@ -83,7 +83,7 @@ const EditProfileComponent = () => {
     <div className="shadow-amber-200 min-h-[70vh]">
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-gradient-to-r from-[#7d2985] to-[#bd2ad6] p-8 rounded-lg shadow-xl min-w-[71vw] mt-[-3rem] min-h-screen text-[20px]"
+        className="max-w-lg mx-auto bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] p-8 rounded-lg shadow-xl min-w-[71vw] mt-[-3rem] min-h-screen text-[20px]"
       >
         <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#c88106] to-[#d29b9b66] mb-6 text-center">
           Edit Profile
@@ -154,6 +154,7 @@ const EditProfileComponent = () => {
 
         {/* Buttons */}
         <div className="text-right">
+          {/* Cancel Button */}
           <button
             type="button"
             onClick={handleCancel}
@@ -161,12 +162,21 @@ const EditProfileComponent = () => {
           >
             Cancel
           </button>
+
+          {/* Save Changes Button */}
           <button
             type="submit"
-            className="bg-gradient-to-r from-green-500 to-teal-500 text-white py-2 px-6 rounded-lg focus:outline-none transition duration-300 hover:from-green-700 hover:to-teal-700 cursor-pointer"
+            className="bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] text-white py-2 px-6 rounded-lg focus:outline-none transition duration-300 hover:from-[#266080] hover:to-[#34a1b2] cursor-pointer"
             disabled={loading}
           >
-            {loading ? "Saving..." : "Save Changes"}
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <ClipLoader size={24} color={"#fff"} />
+                <span className="ml-2">Saving</span>
+              </div>
+            ) : (
+              "Save Changes"
+            )}
           </button>
         </div>
       </form>

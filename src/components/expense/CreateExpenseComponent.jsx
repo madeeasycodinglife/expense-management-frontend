@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext"; // Import AuthContext
 import expenseService from "../../services/expenseService"; // Import expenseService
+import { ClipLoader } from "react-spinners";
 
 const CreateExpenseComponent = () => {
   const { user } = useContext(AuthContext); // Get user (and accessToken) from AuthContext
@@ -69,7 +70,7 @@ const CreateExpenseComponent = () => {
       handleCancel(); // Reset form after successful submission
     } catch (error) {
       setError(error);
-      toast.error(error || "Expense creation failed.");
+      toast.error(JSON.stringify(error) || "Expense creation failed.");
     } finally {
       setLoading(false);
     }
@@ -91,7 +92,7 @@ const CreateExpenseComponent = () => {
     <div className="shadow-amber-200 min-h-[70vh]">
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-gradient-to-r  p-8 rounded-lg shadow-xl from-[#7d2985] to-[#bd2ad6] min-w-[71vw] mt-[-3rem] min-h-screen"
+        className="max-w-lg mx-auto  p-8 rounded-lg shadow-xl bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] min-w-[71vw] mt-[-3rem] min-h-screen"
       >
         <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f03333] to-[#e2068add] mb-6 text-center shadow-amber-50 ml-5">
           Add New Expense
@@ -208,18 +209,25 @@ const CreateExpenseComponent = () => {
           <button
             type="button"
             onClick={handleCancel}
-            className="bg-gray-600 text-white py-2 px-6 rounded-lg hover:bg-gray-700 focus:outline-none transition duration-300 hover:cursor-pointer mr-4"
+            className="bg-gradient-to-r from-gray-600 to-gray-700 text-white py-2 px-6 rounded-lg focus:outline-none transition duration-300 hover:from-gray-700 hover:to-gray-800 cursor-pointer mr-4"
           >
             Cancel
           </button>
 
-          {/* Submit Button */}
+          {/* Add Expense Button */}
           <button
             type="submit"
-            className="bg-gradient-to-r from-green-500 to-teal-500 text-white py-2 px-6 rounded-lg hover:bg-gradient-to-l hover:from-teal-500 hover:to-green-500 focus:outline-none transition duration-300 hover:cursor-pointer"
+            className="bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] text-white py-2 px-6 rounded-lg focus:outline-none transition duration-300 hover:from-[#266080] hover:to-[#34a1b2] cursor-pointer"
             disabled={loading}
           >
-            {loading ? "Submitting..." : "Add Expense"}
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <ClipLoader size={24} color={"#fff"} />
+                <span className="ml-2">Submitting...</span>
+              </div>
+            ) : (
+              "Add Expense"
+            )}
           </button>
         </div>
       </form>

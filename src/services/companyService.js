@@ -2,6 +2,12 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/company-service/";
 
+// Axios instance with timeout configuration
+const axiosInstance = axios.create({
+  baseURL: API_URL,
+  timeout: 20000, // Timeout set to 10 seconds for all requests
+});
+
 const companyService = {
   /**
    * Registers a new company.
@@ -13,11 +19,15 @@ const companyService = {
     try {
       console.log("Registering company:", companyData);
 
-      const response = await axios.post(`${API_URL}register`, companyData, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`, // Add the accessToken here in the Authorization header
-        },
-      });
+      const response = await axiosInstance.post(
+        `${API_URL}register`,
+        companyData,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Add the accessToken here in the Authorization header
+          },
+        }
+      );
 
       return response.data;
     } catch (error) {
@@ -39,11 +49,14 @@ const companyService = {
     try {
       console.log("Fetching company details for domain:", domain);
 
-      const response = await axios.get(`${API_URL}domain-name/${domain}`, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`, // Add the accessToken in the Authorization header
-        },
-      });
+      const response = await axiosInstance.get(
+        `${API_URL}domain-name/${domain}`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Add the accessToken in the Authorization header
+          },
+        }
+      );
 
       return response.data;
     } catch (error) {

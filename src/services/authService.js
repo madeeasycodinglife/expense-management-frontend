@@ -2,12 +2,18 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/auth-service/";
 
+// Axios instance with timeout configuration
+const axiosInstance = axios.create({
+  baseURL: API_URL,
+  timeout: 20000, // Timeout set to 10 seconds for all requests
+});
+
 const authService = {
   register: async (userData) => {
     try {
       console.log("Registering user:", userData);
       userData.role = "ADMIN";
-      const response = await axios.post(`${API_URL}sign-up`, userData);
+      const response = await axiosInstance.post(`${API_URL}sign-up`, userData);
       return response.data;
     } catch (error) {
       console.error("Registration error:", error.response?.data || error);
@@ -17,7 +23,7 @@ const authService = {
   newEmployee: async (userData, accessToken) => {
     try {
       console.log("userData : ", userData);
-      const response = await axios.post(`${API_URL}sign-up`, userData, {
+      const response = await axiosInstance.post(`${API_URL}sign-up`, userData, {
         headers: {
           Authorization: `Bearer ${accessToken}`, // Add the accessToken here in the Authorization header
         },
@@ -30,7 +36,10 @@ const authService = {
   },
   login: async (credentials) => {
     try {
-      const response = await axios.post(`${API_URL}sign-in`, credentials);
+      const response = await axiosInstance.post(
+        `${API_URL}sign-in`,
+        credentials
+      );
       return response.data;
     } catch (error) {
       console.error("Login error:", error.response?.data || error);
@@ -40,7 +49,10 @@ const authService = {
 
   logout: async (logOutRequest) => {
     try {
-      const response = await axios.post(`${API_URL}log-out`, logOutRequest);
+      const response = await axiosInstance.post(
+        `${API_URL}log-out`,
+        logOutRequest
+      );
       console.log("response inside authService : ", response);
 
       return response;
@@ -52,7 +64,7 @@ const authService = {
 
   validateToken: async (accessToken) => {
     try {
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         `${API_URL}validate-access-token/${accessToken}`
       );
       return response.data;
@@ -63,11 +75,14 @@ const authService = {
   },
   getUser: async (emailId, token) => {
     try {
-      const response = await axios.get(`${API_URL}get-user/${emailId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`, // Pass the token in the Authorization header
-        },
-      });
+      const response = await axiosInstance.get(
+        `${API_URL}get-user/${emailId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Pass the token in the Authorization header
+          },
+        }
+      );
       return response.data; // Return user data on success
     } catch (error) {
       console.error("Get User error:", error.response?.data || error);
@@ -76,7 +91,7 @@ const authService = {
   },
   updateUserProfile: async (emailId, userData, accessToken) => {
     try {
-      const response = await axios.patch(
+      const response = await axiosInstance.patch(
         `${API_URL}partial-update/${emailId}`,
         userData,
         {
