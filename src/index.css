@@ -6,3 +6,10 @@
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(69, 23, 253, 0.738);
 }
+
+.text-gradient-shadow {
+  background: linear-gradient(to right, #07abf7, #a8fb02, #31cf0a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(17, 13, 13, 0.738);
+}
