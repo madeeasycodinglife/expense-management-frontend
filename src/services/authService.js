@@ -5,7 +5,7 @@ const API_URL = "http://localhost:8080/auth-service/";
 // Axios instance with timeout configuration
 const axiosInstance = axios.create({
   baseURL: API_URL,
-  timeout: 20000, // Timeout set to 10 seconds for all requests
+  timeout: 50000, // Timeout set to 10 seconds for all requests
 });
 
 const authService = {

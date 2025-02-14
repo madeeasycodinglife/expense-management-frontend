@@ -184,6 +184,8 @@ const ExpenseListComponent = () => {
               <option value="">Select Status</option>
               <option value="PENDING">Pending</option>
               <option value="APPROVED">Approved</option>
+              <option value="REJECTED">Rejected</option>{" "}
+              {/* Added Rejected option */}
             </select>
             {/* Clear Filters Button */}
             <button
