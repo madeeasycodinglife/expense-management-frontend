@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import authService from "../../services/authService";
 import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-hot-toast";
+import { ClipLoader } from "react-spinners";
 
 const EditProfileComponent = () => {
   const { user, userProfile, updateUserProfile } = useContext(AuthContext);
