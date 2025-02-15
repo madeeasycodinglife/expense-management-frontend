@@ -127,7 +127,7 @@ const GenerateInvoiceComponent = () => {
             htmlFor="domainName"
             className="text-white mr-4 w-40 text-right"
           >
-            Domain Name:
+            Domain:
           </label>
           <input
             type="text"

@@ -191,7 +191,7 @@ const ExpenseListComponent = () => {
             {/* Clear Filters Button */}
             <button
               onClick={clearFilters}
-              className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700 hover:cursor-pointer ml-2 min-w-24"
+              className="px-4 py-2 bg-gradient-to-r from-[#f87171] via-[#ef4444] to-[#c52c2c] text-white rounded-md hover:bg-gradient-to-r hover:from-[#ef4444] hover:via-[#b91c1c] hover:to-[#f87171] hover:cursor-pointer ml-2 min-w-24"
             >
               Clear Filters
             </button>
@@ -204,7 +204,7 @@ const ExpenseListComponent = () => {
         >
           <table className="w-full text-[10.8px]">
             <thead className="sticky top-0 z-10">
-              <tr className="bg-[#f765b9] text-white">
+              <tr className="bg-gradient-to-r from-[#1d8f61] via-[#aa1adf] to-[#ae0f3c] text-white">
                 <th className="px-4 py-2">Expense Id</th>
                 <th className="px-4 py-2">Title</th>
                 <th className="px-4 py-2">Description</th>
@@ -239,7 +239,7 @@ const ExpenseListComponent = () => {
                         ? "bg-gray-200 text-[#c123ed] font-semibold"
                         : "bg-gray-300 text-[#3b23ed] font-semibold"
                     } 
-                    hover:bg-gray-400`} // Hover effect added here
+                    hover:bg-[#d5d5d5]`} // Hover effect added here
                   >
                     <td className="px-4 py-2">{approval.expenseId}</td>
                     <td className="px-4 py-2">{approval.title}</td>
