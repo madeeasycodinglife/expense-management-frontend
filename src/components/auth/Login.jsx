@@ -43,7 +43,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#a117c7] via-[#3b82f6] to-[#4943c2]">
+    <div className="bg-gradient-to-br from-[#4e76dc] via-[#3abaed] to-[#964dea]">
       <div className="sm:max-w-[31.25rem] mx-auto sm:mt-3 max-w-96 bg-white shadow-lg rounded-lg overflow-hidden sm:mt-5 md:mt-0 md:min-h-[90vh] min-h-[90vh] sm:h-[40.5rem] md:max-w-screen-md sm:h-[39rem] md:h-[35rem]">
         <div className="grid grid-cols-1 md:h-full md:grid-cols-2 place-items-center bg-gradient-to-br from-[#a117c7] via-[#3b82f6] to-[#4943c2]">
           <div className="pt-10 pl-8">

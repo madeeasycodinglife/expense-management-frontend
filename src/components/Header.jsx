@@ -29,7 +29,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-pink-400 to-indigo-500 text-white shadow-lg fixed w-full z-50">
+    // <header className="bg-gradient-to-r from-pink-400 to-indigo-500 text-white shadow-lg fixed w-full z-50">
+    <header className="bg-gradient-to-r from-[#d33b87] via-[#3abaed] to-[#9563f1] text-white shadow-lg fixed w-full z-50">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
         <Link to="/">

@@ -136,7 +136,7 @@ const GenerateInvoiceComponent = () => {
             value={userData?.companyDomain || ""}
             onChange={handleChange}
             placeholder="Enter Domain Name"
-            className="w-full px-4 text-[#13ec8b] py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200 cursor-not-allowed"
+            className="w-full px-4 text-[#a713ec] py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200 cursor-not-allowed"
             readOnly
             disabled
           />

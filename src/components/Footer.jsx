@@ -4,7 +4,8 @@ import expense from "../assets/expense-logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-indigo-500 to-pink-400 text-white py-6 shadow-lg fixed bottom-0 w-full">
+    // <footer className="bg-gradient-to-r from-indigo-500 to-pink-400 text-white py-6 shadow-lg fixed bottom-0 w-full">
+    <footer className="bg-gradient-to-r from-[#d33b87] via-[#3abaed] to-[#d33b87] text-white py-6 shadow-lg fixed bottom-0 w-full">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
         {/* Logo and Copyright */}
         <div className="flex items-center space-x-4">

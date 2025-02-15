@@ -28,7 +28,7 @@ const EmployeePanel = () => {
     }
   };
   return (
-    <section className="bg-gradient-to-br from-[#bd2ad6] to-[#63196a] min-h-[90vh] overflow-hidden pl-4 border-4 relative">
+    <section className="bg-gradient-to-br from-[#096590] via-[#623874] to-[#650ee8] min-h-[90vh] overflow-hidden pl-4 border-4 relative">
       {/* Left Sidebar */}
       <div className="absolute left-5 top-0  mt-36 w-1/4 bg-gradient-to-br from-[#266080] via-[#34a1b2] to-[#1e5a6d] text-white p-4 space-y-4">
         <button

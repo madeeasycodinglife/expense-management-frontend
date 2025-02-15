@@ -113,7 +113,8 @@ const ExpenseListComponent = () => {
 
   return (
     <div className="shadow-amber-200 min-h-[70vh]">
-      <div className="max-w-full mx-auto bg-gradient-to-r p-8 rounded-lg shadow-xl from-[#7d2985] to-[#bd2ad6] min-w-[72vw] mt-[-3rem] min-h-screen">
+      {/* <div className="max-w-full mx-auto bg-gradient-to-r p-8 rounded-lg shadow-xl from-[#7d2985] to-[#bd2ad6] min-w-[72vw] mt-[-3rem] min-h-screen"> */}
+      <div className="max-w-full mx-auto bg-gradient-to-r p-8 rounded-lg shadow-xl from-[#341d8f] via-[#117d66] to-[#661557] min-w-[72vw] mt-[-3rem] min-h-screen">
         {/* Filters Row */}
         <div className="flex justify-between mb-6 text-fuchsia-400">
           <div className="flex space-x-4">

@@ -116,7 +116,7 @@ const CreateEmployeeComponent = () => {
         {/* Full Name */}
         <div className="mb-4 flex items-center">
           <label htmlFor="fullName" className="text-white mr-4 w-40 text-right">
-            Full Name :
+            Name :
           </label>
           <input
             type="text"
@@ -194,7 +194,7 @@ const CreateEmployeeComponent = () => {
             htmlFor="companyDomain"
             className="text-white mr-4 w-40 text-right"
           >
-            Company Domain :
+            Domain :
           </label>
           <input
             type="text"
