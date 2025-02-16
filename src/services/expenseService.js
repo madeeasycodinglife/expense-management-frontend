@@ -194,6 +194,112 @@ const expenseService = {
       throw errorMessage;
     }
   },
+  /**
+   * Fetches monthly expense trends.
+   * @param {string} companyDomain - The domain of the company.
+   * @param {Object} filters - Optional filters for year and month.
+   * @param {string} accessToken - The access token for authorization.
+   * @returns {Promise<Array>} - The list of monthly expense trends.
+   */ getMonthlyExpenseTrends: async (companyDomain, filters, accessToken) => {
+    try {
+      console.log(
+        "Fetching monthly expense trends for domain:",
+        companyDomain,
+        "with filters:",
+        filters
+      );
+
+      const { startYear, endYear, startMonth, endMonth } = filters;
+
+      const response = await axiosInstance.get(
+        `${API_URL}monthly-trends/${companyDomain}`,
+        {
+          params: { startYear, endYear, startMonth, endMonth },
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      const errorMessage = handleError(error);
+      console.error("Error fetching monthly expense trends:", errorMessage);
+      throw errorMessage;
+    }
+  },
+
+  /**
+   * Fetches yearly expense trends.
+   * @param {string} companyDomain - The domain of the company.
+   * @param {Object} filters - Optional filters for the year.
+   * @param {string} accessToken - The access token for authorization.
+   * @returns {Promise<Array>} - The list of yearly expense trends.
+   */
+  getYearlyExpenseTrends: async (companyDomain, filters, accessToken) => {
+    try {
+      console.log(
+        "Fetching yearly expense trends for domain:",
+        companyDomain,
+        "with filters:",
+        filters
+      );
+
+      const { startYear, endYear } = filters;
+
+      const response = await axiosInstance.get(
+        `${API_URL}yearly-trends/${companyDomain}`,
+        {
+          params: { startYear, endYear },
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      const errorMessage = handleError(error);
+      console.error("Error fetching yearly expense trends:", errorMessage);
+      throw errorMessage;
+    }
+  },
+
+  /**
+   * Fetches expense breakdown by category.
+   * @param {string} companyDomain - The domain of the company.
+   * @param {Object} filters - Optional filters for year, month, and category.
+   * @param {string} accessToken - The access token for authorization.
+   * @returns {Promise<Array>} - The list of expense category breakdown.
+   */
+  getExpenseCategoryBreakdown: async (companyDomain, filters, accessToken) => {
+    try {
+      console.log(
+        "Fetching expense category breakdown for domain:",
+        companyDomain,
+        "with filters:",
+        filters
+      );
+
+      const { startYear, endYear, startMonth, endMonth, category } = filters;
+
+      const response = await axiosInstance.get(
+        `${API_URL}category-breakdown/${companyDomain}`,
+        {
+          params: { startYear, endYear, startMonth, endMonth, category },
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      const errorMessage = handleError(error);
+      console.error("Error fetching expense category breakdown:", errorMessage);
+      throw errorMessage;
+    }
+  },
 };
 
 export default expenseService;

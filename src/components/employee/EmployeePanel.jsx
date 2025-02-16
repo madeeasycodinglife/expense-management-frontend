@@ -4,6 +4,7 @@ import GenerateInvoiceComponent from "../invoice/GenerateInvoiceComponent";
 import EditProfileComponent from "../common/EditProfileComponent";
 import ChangePasswordComponent from "../common/ChangePasswordComponent";
 import ExpenseListComponent from "../expense/ExpenseListComponent";
+import ExpenseGraphComponent from "../expense/ExpenseGraphComponent";
 
 const EmployeePanel = () => {
   const [selectedComponent, setSelectedComponent] = useState("expenses");
@@ -16,11 +17,16 @@ const EmployeePanel = () => {
         return <CreateExpenseComponent />;
       case "status":
         return <ExpenseListComponent />;
+
+      case "expense-graph":
+        return <ExpenseGraphComponent />;
+
       case "invoice":
         return <GenerateInvoiceComponent />;
 
       case "edit-profile":
         return <EditProfileComponent />;
+
       case "change-password":
         return <ChangePasswordComponent />;
       default:
@@ -42,6 +48,12 @@ const EmployeePanel = () => {
           onClick={() => setSelectedComponent("status")}
         >
           Status
+        </button>
+        <button
+          className="w-full p-2  bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
+          onClick={() => setSelectedComponent("expense-graph")}
+        >
+          Graph
         </button>
         <button
           className="w-full p-2  bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
