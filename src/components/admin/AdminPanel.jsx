@@ -3,6 +3,7 @@ import CreateCompanyComponent from "../company/CreateCompanyComponent";
 import CreateEmployeeComponent from "../employee/CreateEmployeeComponent";
 import EditProfileComponent from "../common/EditProfileComponent";
 import ChangePasswordComponent from "../common/ChangePasswordComponent";
+import UpdateCompanyComponent from "../company/UpdateCompanyComponent";
 
 const AdminPanel = () => {
   const [selectedComponent, setSelectedComponent] = useState("createCompany");
@@ -12,6 +13,8 @@ const AdminPanel = () => {
     switch (selectedComponent) {
       case "createCompany":
         return <CreateCompanyComponent />;
+      case "updateCompany":
+        return <UpdateCompanyComponent />;
       case "newEmployee":
         return <CreateEmployeeComponent />;
       case "edit-profile":
@@ -32,6 +35,12 @@ const AdminPanel = () => {
           onClick={() => setSelectedComponent("createCompany")}
         >
           New Company
+        </button>{" "}
+        <button
+          className="w-full p-2 bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
+          onClick={() => setSelectedComponent("updateCompany")}
+        >
+          Update Company
         </button>
         <button
           className="w-full p-2 bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
@@ -39,7 +48,6 @@ const AdminPanel = () => {
         >
           New Employee
         </button>
-
         <button
           className="w-full p-2 bg-gradient-to-r from-[#341d8f] via-[#117d66] to-[#661557] rounded hover:cursor-pointer"
           onClick={() => setSelectedComponent("edit-profile")}

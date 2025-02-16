@@ -38,7 +38,23 @@ const companyService = {
       throw error.response?.data || "Company registration failed";
     }
   },
-
+  updateCompany: async (companyData, oldDomain, accessToken) => {
+    try {
+      const response = await axiosInstance.patch(
+        `${API_URL}domain-name/${oldDomain}`,
+        companyData,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Company update error:", error);
+      throw error.response?.data || "Company update failed";
+    }
+  },
   /**
    * Fetches company details by domain name.
    * @param {string} domain - The company's domain name.

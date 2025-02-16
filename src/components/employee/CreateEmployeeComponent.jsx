@@ -66,6 +66,10 @@ const CreateEmployeeComponent = () => {
   };
 
   // Handle form submit
+  /**
+   *
+   * @param {React.SyntheticEvent} e
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateFields()) {

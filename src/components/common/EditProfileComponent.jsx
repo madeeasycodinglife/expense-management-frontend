@@ -129,6 +129,17 @@ const EditProfileComponent = () => {
           />
         </div>
 
+        {/* Role (Not Editable) */}
+        <div className="mb-6 flex items-center">
+          <label className="text-white mr-4 w-40 text-right">Role :</label>
+          <input
+            type="text"
+            value={role}
+            disabled
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-200 cursor-not-allowed"
+          />
+        </div>
+
         {/* Company Domain (Not Editable) */}
         <div className="mb-6 flex items-center">
           <label className="text-white mr-4 w-40 text-right text-nowrap">
@@ -137,17 +148,6 @@ const EditProfileComponent = () => {
           <input
             type="text"
             value={companyDomain}
-            disabled
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-200 cursor-not-allowed"
-          />
-        </div>
-
-        {/* Role (Not Editable) */}
-        <div className="mb-6 flex items-center">
-          <label className="text-white mr-4 w-40 text-right">Role :</label>
-          <input
-            type="text"
-            value={role}
             disabled
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-200 cursor-not-allowed"
           />

@@ -35,6 +35,7 @@ const expenseService = {
    */
   submitExpense: async (expenseData, accessToken) => {
     try {
+      console.time("submittingExpense");
       console.log("Submitting expense:", expenseData);
 
       const response = await axiosInstance.post(
@@ -47,6 +48,7 @@ const expenseService = {
         }
       );
 
+      console.timeEnd("submitedExpense");
       console.log("Response after submitting:", response);
       return response;
     } catch (error) {
