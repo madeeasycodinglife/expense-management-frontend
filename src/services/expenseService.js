@@ -10,10 +10,13 @@ const axiosInstance = axios.create({
 
 // Error handling function to manage different types of errors
 const handleError = (error) => {
+  console.log("inside handleError :", error);
   if (error.response) {
     switch (error.response.status) {
       case 404:
-        return "The resource you're looking for was not found.";
+        return error.response.data
+          ? error.response.data
+          : "The resource you're looking for was not found.";
       case 500:
         return "Server error, please try again later.";
       default:
@@ -220,7 +223,7 @@ const expenseService = {
           },
         }
       );
-
+      console.log("inside getMontlyExpenseTreds : ", response);
       return response.data;
     } catch (error) {
       const errorMessage = handleError(error);

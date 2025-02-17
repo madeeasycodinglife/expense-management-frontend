@@ -24,7 +24,7 @@ const Header = () => {
         navigate("/");
       }
     } catch (error) {
-      toast.error("Logout Error."); // Show error message if something goes wrong
+      toast.error("Logout Error : ", error.message); // Show error message if something goes wrong
       navigate("/");
     }
   };

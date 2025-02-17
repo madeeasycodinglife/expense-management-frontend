@@ -120,7 +120,8 @@ const ExpenseGraphComponent = () => {
           ],
         });
       } catch (error) {
-        toast.error("Error fetching chart data.");
+        console.log("inside chart graph : ", error);
+        toast.error(error);
       } finally {
         setLoading(false);
       }
