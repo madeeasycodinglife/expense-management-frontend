@@ -225,13 +225,13 @@ const GenerateInvoiceComponent = () => {
             className="w-full px-4 py-2 text-[#13ec8b] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Category</option>
-            <option value="Food" className="text-black">
+            <option value="FOOD" className="text-black">
               Food
             </option>
-            <option value="Travel" className="text-black">
+            <option value="TRAVEL" className="text-black">
               Travel
             </option>
-            <option value="OfficeSupplies" className="text-black">
+            <option value="OFFICE_SUPPLIES" className="text-black">
               Office Supplies
             </option>
           </select>

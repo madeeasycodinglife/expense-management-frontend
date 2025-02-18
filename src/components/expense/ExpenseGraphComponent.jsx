@@ -50,6 +50,22 @@ const ExpenseGraphComponent = () => {
     ],
   });
 
+  // Debounce state updates for startYear and endYear
+  const [debouncedStartYear, setDebouncedStartYear] = useState(startYear);
+  const [debouncedEndYear, setDebouncedEndYear] = useState(endYear);
+
+  // Debounce effect to handle user input delay
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedStartYear(startYear);
+      setDebouncedEndYear(endYear);
+    }, 500); // 500ms debounce delay
+
+    return () => {
+      clearTimeout(handler); // Clear timeout if the user is typing
+    };
+  }, [startYear, endYear]);
+
   // Fetch company domain for user
   useEffect(() => {
     const fetchCompanyDomain = async () => {
@@ -74,13 +90,20 @@ const ExpenseGraphComponent = () => {
     if (companyDomain && accessToken) {
       setLoading(true);
       try {
-        const filters = { startMonth, endMonth, startYear, endYear, category };
-
-        const data = await expenseService.getMonthlyExpenseTrends(
+        const filters = {
+          startMonth,
+          endMonth,
+          startYear: debouncedStartYear,
+          endYear: debouncedEndYear,
+          category,
+        };
+        console.log("category before sending : ", category);
+        const data = await expenseService.getExpenseCategoryBreakdown(
           companyDomain,
           filters,
           accessToken
         );
+        console.log("data : ", data);
 
         // Dynamically calculate the labels and expenses data
         const labels = data.map((item) => `${item.month}-${item.year}`);
@@ -114,7 +137,7 @@ const ExpenseGraphComponent = () => {
               label: "Expense Amount",
               data: sortedAmounts,
               fill: false,
-              borderColor: "rgb(75, 192, 192)",
+              borderColor: "#0ced2e",
               tension: 0.1,
             },
           ],
@@ -136,8 +159,8 @@ const ExpenseGraphComponent = () => {
     category,
     startMonth,
     endMonth,
-    startYear,
-    endYear,
+    debouncedStartYear,
+    debouncedEndYear,
     accessToken,
   ]);
 
@@ -162,7 +185,7 @@ const ExpenseGraphComponent = () => {
             size: 14,
             weight: "bold",
           },
-          color: "#ed09b0",
+          color: "#0ced2e",
         },
       },
       tooltip: {
@@ -190,7 +213,7 @@ const ExpenseGraphComponent = () => {
             size: 16,
             weight: "bold",
           },
-          color: "#ed09de", // Title color
+          color: "#0ced2e", // Title color
         },
         grid: {
           color: "rgba(255, 255, 255, 0.2)", // Light white grid lines
@@ -214,7 +237,7 @@ const ExpenseGraphComponent = () => {
             size: 16,
             weight: "bold",
           },
-          color: "#ed09de", // Title color
+          color: "#0ced2e", // Title color
         },
         grid: {
           color: "rgba(255, 255, 255, 0.2)", // Light white grid lines

@@ -286,15 +286,25 @@ const expenseService = {
 
       const { startYear, endYear, startMonth, endMonth, category } = filters;
 
+      // Prepare query parameters, only add them if they have values
+      const params = {};
+      if (startYear) params.startYear = startYear;
+      if (endYear) params.endYear = endYear;
+      if (startMonth) params.startMonth = startMonth;
+      if (endMonth) params.endMonth = endMonth;
+      if (category) params.category = category;
+
       const response = await axiosInstance.get(
         `${API_URL}category-breakdown/${companyDomain}`,
         {
-          params: { startYear, endYear, startMonth, endMonth, category },
+          params,
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         }
       );
+
+      console.log("category response : ", response);
 
       return response.data;
     } catch (error) {
