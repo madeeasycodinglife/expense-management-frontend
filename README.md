@@ -30,7 +30,7 @@ The Expense Management System is a **full-stack web application** that enables c
 - **Spring Boot Actuator** (Monitoring & health checks)
 - **Logging & Auditing** (Industry-standard practices)
 
-### **Frontend**
+### **[Frontend](https://github.com/madeeasycodinglife/expense-management-frontend.git)**
 
 - **React.js** (Component-based frontend framework)
 - **Tailwind CSS** (Modern styling framework)
