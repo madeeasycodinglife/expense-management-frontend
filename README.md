@@ -9,12 +9,12 @@ The Expense Management System is a **full-stack web application** that enables c
 - **Authentication & Authorization 🔒** (JWT-based, Multi-company login/logout)
 - **Company & Employee Management 👥** (Add, update, remove employees & assign roles)
 - **Expense Tracking 💰** (Attach invoices, categorize expenses, track status)
-- **Multi-Level Approval System ✅** (Manager & Finance approval workflows)
+- **Multi-Level Approval System ✅** (Manager , Finance & Admin approval workflows)
 - **Real-time Notifications 📧** (Email notifications via the Notification Service)
 - **Analytics & Reporting 📊** (Monthly, yearly expense trends, visual graphs)
 - **Audit Logging 🛠️** (Track all actions performed by users)
 - **Secure File Uploads 📁** (Attach invoices in PDF, image formats)
-- **Role-based Access Control 🔑** (Manager, Employee, Finance roles)
+- **Role-based Access Control 🔑** (Manager, Employee, Finance & Admin roles)
 - **Microservices Architecture 🏗️** (Scalable & modular services)
 
 ## Tech Stack ⚙️
